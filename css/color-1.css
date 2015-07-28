@@ -1,0 +1,32 @@
+.phone-no .fa,
+.form input[type="submit"],
+.section-head h2:after,
+.philosophy-list .fa,
+.philosophy-list li span:after,
+.social-icons li a:hover,
+.owl-theme .owl-controls .owl-page span{
+	background:#3498db;
+}
+
+.single-testimonial h5,
+.footer-area a:hover{
+	color:#3498db;
+}
+
+.button,
+.lead-form-area input[type="submit"]:hover{
+	background:#fe7800;
+}
+
+.button:hover,
+.lead-form-area input[type="submit"]:hover{
+	background:#dd6800;
+}
+
+.single-about{
+	background:#cee2ea;
+}
+
+.single-about.alt{
+	background:#b7d7e3;
+}

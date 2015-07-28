@@ -1,0 +1,73 @@
+.overlay,
+.single-fproject h6,
+.lead-form-area{
+	background: rgba(0,0,0,.5);
+}
+
+.phone-no .fa,
+.lead-header-area,
+.button,
+.button:hover,
+.lead-form-area input[type="submit"],
+.lead-form-area input[type="submit"]:hover,
+.lead-form-area h3 small,
+.overlay .section-head h2,
+.overlay .section-head p,
+.about-cta,
+.single-fproject h6,
+.single-fproject h6 a,
+.philosophy-list .fa,
+.footer-area,
+.social-icons li a,
+.footer-area a,
+.social-icons li a:hover{
+	color:#fff;
+}
+
+.header-area h1,
+.single-service h4:after{
+	background:#fff;
+}
+
+.phone-no{
+	color:#3c3c3c;
+}
+
+.slogan{
+	color:#919191;
+}
+
+.section-head h1{
+	color:#252525;
+}
+
+.section-head p,
+.why-text ul li h5,
+.why-text p{
+	color:#4f4f4f;
+}
+
+.why-us-area,
+.testimonials{
+	background:#f2f2f2;
+}
+
+.single-testimonial h5:after{
+	background:#cacaca;
+}
+
+.header-area h1{
+	color:#212121;
+}
+
+.tequote{
+	color:#e3e3e3;
+}
+
+.single-testimonial ul li{
+	color:#ffae11;
+}
+
+.footer-area{
+	background:#484848;
+}
