@@ -41,9 +41,11 @@ jQuery(function () {
     $("#contactform").submit(function (e) {
         e.preventDefault();
         var name = $("#cf-name").val();
+		var fname = name.split(" ")[0];
+		var lname = name.split(" ")[name.length-1];
         var email = $("#cf-email").val();
         var message = $("#cf-phone").val();
-        var dataString = 'name=' + name + '&email=' + email + '&phone=' + message;
+        var dataString = 'fname=' + fname + '&lname=' + lname + '&email_address=' + email;
 
         function isValidEmail(emailAddress) {
             var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
@@ -52,12 +54,15 @@ jQuery(function () {
         if (isValidEmail(email) && (message.length > 1) && (name.length > 1) && isValidPhone(message)) {
             $.ajax({
                 type: "POST",
-                url: "sendmail.php",
+                url: "https://secure.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057",
                 data: dataString,
                 success: function () {
                     $('.success').fadeIn(1000);
                     $('.error').fadeOut(500);
-                }
+                },
+				error: function(){
+					console.log("Error!");
+				}
             });
         }
         else {
