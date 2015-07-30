@@ -60,8 +60,9 @@ jQuery(function () {
                     $('.success').fadeIn(1000);
                     $('.error').fadeOut(500);
                 },
-				error: function(){
-					console.log("Error!");
+				error: function(jqXHR, status, err ){
+					console.log(status);
+					console.log(err);
 				}
             });
         }
