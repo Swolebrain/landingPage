@@ -6,9 +6,9 @@ jQuery(function () {
 		
 		
 		// Parallax 
-		$('.lead-header-area').parallax("50%", 0.1);
-		$('.about-more-area').parallax("50%", 0.1);
-		$('.cta-area').parallax("50%", 0.1);
+		$('.lead-header-area').parallax("20%", 0);
+		$('.about-more-area').parallax("50%", 0);
+		$('.cta-area').parallax("50%", 0);
 		
 		// OWL Carousel
 		$("#owl-example").owlCarousel({
@@ -38,8 +38,15 @@ jQuery(function () {
 	/* =================================
 	  CONTACT FORM         
 	=================================== */
-    $("#contactform").submit(function (e) {
-        e.preventDefault();
+    //$("#contactform").submit(submitForm);
+	/*$("#contactform").submit(function(e){
+		submitForm(e);
+	});*/
+	$("#submit").click(function(){
+		submitForm();
+	});
+	function submitForm(e) {
+		if (e) e.preventDefault();
         var name = $("#cf-name").val();
 		var arr = name.split(" ");
 		var fname = arr[0];
@@ -73,6 +80,10 @@ jQuery(function () {
 			$("#last_name").val(lname);
 			$("#day_phone").val(message);
 			$("#email").val(email);
+			$('.success').fadeIn(1000);
+            $('.error').fadeOut(500);
+			
+			
 			$("#contactform").submit();
             /*var ynotQueryString = "redirect_url=http://explore.fvi.edu/thanks.php&address=&program_id="+ 
 			"Web+and+Application+Development+Engineer&first_name="+fname+"&last_name="+lname+
@@ -106,7 +117,5 @@ jQuery(function () {
             $('.error').fadeIn(1000);
             $('.success').fadeOut(500);
         }
-        
-    });		
-	
+	}
 }());
