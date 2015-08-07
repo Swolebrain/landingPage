@@ -65,7 +65,7 @@ jQuery(function () {
 			//velocify code:
 			try {
 				var xhr = new XMLHttpRequest();
-				xhr.open('POST', 'https://securex.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057', true);
+				xhr.open('POST', 'https://secure.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057', true);
 				xhr.onload = function () {
 						console.log(this.responseText);
 				}
@@ -89,12 +89,12 @@ jQuery(function () {
 			"&first_name="+fname+"&last_name="+lname+
 			"&day_phone="+message+"&email="+email;
 			ynotQueryString += "&city=Miami&grad_year="+new Date().getFullYear();
-			ynotQueryString += "&lead_source_id=9999&location_id=1169&state_id=9";
+			ynotQueryString += "&lead_source_id=5&location_id=1169&state_id=9";
 			ynotQueryString += "&zipcode=00000&level_of_education_id=590";
 			
 			$.ajax({
                 type: "POST",
-                url: "http://api.ynotlms.com/leads-test.json",
+                url: "http://api.ynotlms.com/leads.json",
                 data: ynotQueryString,
                 success: function (data, textStatus, jqXHR) {
                     $('.success').fadeIn(1000);
