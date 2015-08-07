@@ -46,20 +46,39 @@ jQuery(function () {
 		var lname = arr[arr.length-1];
         var email = $("#cf-email").val();
         var message = $("#cf-phone").val();
-        var dataString = 'FirstName=' + fname + '&LastName=' + lname + '&Email=' + email;
+        var velocifyQueryString = 'FirstName=' + fname + '&LastName=' + lname + '&Email=' + email +
+		"&ProgramName=Web+and+Application+Development+Engineer&PhoneNumber=";
+		var ynotQueryString = "redirect_url=http://explore.fvi.edu/thanks.php&address=&program_id="+ 
+			"Web+and+Application+Development+Engineer&first_name="+fname+"&last_name="+lname+
+			"&day_phone="+message+"&email="+email;
 
         function isValidEmail(emailAddress) {
             var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
             return pattern.test(emailAddress);
         };
         if (isValidEmail(email) && (message.length > 1) && (name.length > 1) && isValidPhone(message)) {
+			//velocify code:
+			try {
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', 'https://secure.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057', true);
+				xhr.onload = function () {
+						console.log(this.responseText);
+				}
+				xhr.send(velocifyQueryString);
+			}
+			catch (err){
+				console.log(err);
+			}
+			
+			//ynot code:**************************************
             $.ajax({
                 type: "POST",
-                url: "https://secure.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057",
-                data: dataString,
-                success: function () {
+                url: "http://api.ynotlms.com/leads.redirect",
+                data: ynotQueryString,
+                success: function (data, textStatus, jqXHR) {
                     $('.success').fadeIn(1000);
                     $('.error').fadeOut(500);
+					console.log(textStatus);
                 },
 				error: function(jqXHR, status, err ){
 					console.log(status);
@@ -81,7 +100,7 @@ jQuery(function () {
             $('.error').fadeIn(1000);
             $('.success').fadeOut(500);
         }
-        return false;
+        
     });		
 	
 }());
