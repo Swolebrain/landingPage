@@ -39,12 +39,12 @@ jQuery(function () {
 	  CONTACT FORM         
 	=================================== */
     //$("#contactform").submit(submitForm);
-	/*$("#contactform").submit(function(e){
+	$("#contactform").submit(function(e){
 		submitForm(e);
-	});*/
-	$("#submit").click(function(){
-		submitForm();
 	});
+	/*$("#submit").click(function(){
+		submitForm();
+	});*/
 	function submitForm(e) {
 		if (e) e.preventDefault();
         var name = $("#cf-name").val();
@@ -65,7 +65,7 @@ jQuery(function () {
 			//velocify code:
 			try {
 				var xhr = new XMLHttpRequest();
-				xhr.open('POST', 'https://secure.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057', true);
+				xhr.open('POST', 'https://securex.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057', true);
 				xhr.onload = function () {
 						console.log(this.responseText);
 				}
@@ -76,7 +76,7 @@ jQuery(function () {
 			}
 			
 			//ynot code:**************************************
-			$("#first_name").val(fname);
+			/*$("#first_name").val(fname);
 			$("#last_name").val(lname);
 			$("#day_phone").val(message);
 			$("#email").val(email);
@@ -84,24 +84,28 @@ jQuery(function () {
             $('.error').fadeOut(500);
 			
 			
-			$("#contactform").submit();
-            /*var ynotQueryString = "redirect_url=http://explore.fvi.edu/thanks.php&address=&program_id="+ 
-			"Web+and+Application+Development+Engineer&first_name="+fname+"&last_name="+lname+
+			$("#contactform").submit();*/
+            var ynotQueryString = "address=unknown&program_id=5168"+ 
+			"&first_name="+fname+"&last_name="+lname+
 			"&day_phone="+message+"&email="+email;
+			ynotQueryString += "&city=Miami&grad_year="+new Date().getFullYear();
+			ynotQueryString += "&lead_source_id=9999&location_id=1169&state_id=9";
+			ynotQueryString += "&zipcode=00000&level_of_education_id=590";
+			
 			$.ajax({
                 type: "POST",
-                url: "http://api.ynotlms.com/leads.redirect",
+                url: "http://api.ynotlms.com/leads-test.json",
                 data: ynotQueryString,
                 success: function (data, textStatus, jqXHR) {
                     $('.success').fadeIn(1000);
                     $('.error').fadeOut(500);
-					console.log(textStatus);
+					console.log(data);
                 },
 				error: function(jqXHR, status, err ){
 					console.log(status);
 					console.log(err);
 				}
-            });*/
+            });
         }
         else {
 			if (!isValidEmail(email)) {
