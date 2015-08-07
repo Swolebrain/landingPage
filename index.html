@@ -71,7 +71,15 @@
 							<div class="lead-form-area">
 							  <h3><small>Learn to CODE</small>Start Today</h3>
 							  <p>Download your FREE Program Brochure to learn more.</p>
-								<form id="contactform" class="contact-form text-center" role="form">
+								<form id="contactform" class="contact-form text-center" role="form" action="http://api.ynotlms.com/leads.redirect" target="_top" method="post">
+									<!-- hidden fields for ynot form -->
+									<input type="hidden" name="redirect_url" value="http://explore.fvi.edu/thanks.php">
+									<input type="hidden" name="address" id="address" value="">
+									<input type="hidden" name="first_name" id="first_name" value="">
+									<input type="hidden" name="last_name" id="last_name" value="">
+									<input type="hidden" name="day_phone" id="day_phone" value="">
+									<input type="hidden" name="email" id="email" value="">
+									<input type="hidden" name="program_id" id="program_id" value="Web and Application Development Engineer">
 									<!-- IF MAIL SENT SUCCESSFULLY -->
 									<h6 class="success">
 									<span class="colored-text icon_check"></span> Your message has been sent successfully.</h6>
