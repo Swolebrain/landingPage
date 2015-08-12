@@ -184,6 +184,7 @@ img{
 	padding-right: 0;
 	padding-left: 0;
 	padding-bottom: 100px;
+
 }
 .lead-form-area{
 	padding:20px 15px;
@@ -570,7 +571,7 @@ img{
 		width: 100%;
 	}
 	h1, .h1-like {
-	  font-size: 40px;
+	  font-size: 45px;
 	  line-height: 56px;
 	}
 	.text-center-tab,.text-center-mob{
@@ -598,7 +599,7 @@ img{
 	}
 }
 
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 767px) {
 	.mobile-hide{
 		display:none;
 	}
@@ -611,6 +612,9 @@ img{
 		padding-bottom:8px;
 	}
 	.home-text{
-		padding-bottom:20px;
-	}
+		padding-bottom:70px;
+		}
+	.mobile-up {
+		padding-top: 0px;
+		}
 }
