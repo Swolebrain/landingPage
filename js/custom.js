@@ -66,18 +66,6 @@ function submitForm(e) {
 		return pattern.test(emailAddress);
 	};
 	if (isValidEmail(email) && (message.length > 1) && (name.length > 1) && isValidPhone(message)) {
-		//velocify code:
-		/*try {
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'https://secure.velocify.com/Import.aspx?Provider=FloridaVocational&Client=30010&CampaignId=1057', true);
-			xhr.onload = function () {
-					console.log(this.responseText);
-			}
-			xhr.send(velocifyQueryString);
-		}
-		catch (err){
-			console.log(err);
-		}*/
 		
 		var ynotQueryString = "address=unknown&program_id=5168"+ 
 		"&first_name="+fname+"&last_name="+lname+
