@@ -597,3 +597,20 @@ img{
 		margin-top:0;
 	}
 }
+
+@media only screen and (max-width: 899px) {
+	.mobile-hide{
+		display:none;
+	}
+	.phone-no{
+		padding-top:0;
+		padding-bottom:8px;
+		font-size:18px;
+	}
+	.slogan{
+		padding-bottom:8px;
+	}
+	.home-text{
+		padding-bottom:20px;
+	}
+}
