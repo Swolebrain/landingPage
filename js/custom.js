@@ -31,9 +31,9 @@ jQuery(function () {
 		e.preventDefault();
 		submitForm(e);
 	});*/
-	/*$("#submit").click(function(){
+	$("#btnSubmit").click(function(){
 		submitForm();
-	});*/
+	});
 	
 	
 }());
@@ -78,11 +78,11 @@ function submitForm(e) {
 			type: "POST",
 			url: "http://api.ynotlms.com/leads-test.json",
 			data: ynotQueryString,
-			async: false,
 			success: function (data, textStatus, jqXHR) {
 				$('.success').fadeIn(1000);
 				$('.error').fadeOut(500);
 				console.log(data);
+				document.contactform.submit();
 			},
 			error: function(jqXHR, status, err ){
 				console.log(status);
