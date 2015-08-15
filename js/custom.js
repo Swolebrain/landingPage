@@ -76,7 +76,7 @@ function submitForm(e) {
 		
 		$.ajax({
 			type: "POST",
-			url: "http://api.ynotlms.com/leads-test.json",
+			url: "http://api.ynotlms.com/leads.json",
 			data: ynotQueryString,
 			success: function (data, textStatus, jqXHR) {
 				$('.success').fadeIn(1000);
