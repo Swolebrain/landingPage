@@ -100,7 +100,7 @@ function submitForm(e) {
 			console.log("validating number: "+message);
 			$(".error").html('<span class="colored-text icon_error-circle_alt"></span> Please enter a valid phone number.');
 		}
-		else{
+		if (name.length < 2) {
 			$(".error").html('<span class="colored-text icon_error-circle_alt"></span> All fields must be completed.');
 		}
 		$('.error').fadeIn(1000);
