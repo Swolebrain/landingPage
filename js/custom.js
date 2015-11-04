@@ -67,29 +67,7 @@ function submitForm(e) {
 	};
 	if (isValidEmail(email) && (message.length > 1) && (name.length > 1) && isValidPhone(message)) {
 		
-		var ynotQueryString = "address=unknown&program_id=5168"+ 
-		"&first_name="+fname+"&last_name="+lname+
-		"&day_phone="+message+"&email="+email;
-		ynotQueryString += "&city=Miami&grad_year="+new Date().getFullYear();
-		ynotQueryString += "&lead_source_id=5&location_id=1169&state_id=9";
-		ynotQueryString += "&zipcode=00000&level_of_education_id=590";
-		
-		$.ajax({
-			type: "POST",
-			url: "http://api.ynotlms.com/leads.json",
-			data: ynotQueryString,
-			success: function (data, textStatus, jqXHR) {
-				$('.success').fadeIn(1000);
-				$('.error').fadeOut(500);
-				console.log(data);
-				document.contactform.submit();
-			},
-			error: function(jqXHR, status, err ){
-				console.log(status);
-				console.log(err);
-				return false;
-			}
-		});
+		document.contactform.submit();
 		
 	}
 	else {
